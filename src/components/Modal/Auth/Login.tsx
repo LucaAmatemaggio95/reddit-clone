@@ -40,6 +40,7 @@ const Login: React.FC<LoginProps> = () => {
     }));
   };
 
+  // TEST ACCOUNT
   const handleClickReset = () => {
     setAuthModalState(prev => ({
       ...prev,
