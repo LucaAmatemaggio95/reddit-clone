@@ -44,3 +44,9 @@ create firebase folder
 import everything listed inside firebase/clientApp.ts
 
 npm install react-firebase-hooks
+
+per creare cloud functions
+$ npm install -g firebase-tools
+cmd: firebase init > clud functions > existing project > typescript
+dopo che scrivo la mia cloud function
+firebase deploy --only functions
