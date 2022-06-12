@@ -2,16 +2,24 @@ import { Box, Button, Flex, Icon, Image, Text } from "@chakra-ui/react";
 import React from "react";
 import { FaReddit } from "react-icons/fa";
 import { Community } from "../../atoms/communitiesAtom";
+import { useCommunityData } from "../../hooks/useCommunityData";
 
 type HeaderProps = {
   communityData: Community;
 };
 
 const Header: React.FC<HeaderProps> = ({ communityData }) => {
-  // check if the community is inside the community snippet of the user
-  const isJoined = false;
+  const { communityStateValue, onJoinOrLeaveCommunity, loading } =
+    useCommunityData();
 
-  const handleJoin = () => {};
+  // check if the community is inside the community snippet of the user
+  const isJoined = !!communityStateValue.mySnippets.find(
+    item => item.communityId === communityData.id
+  );
+
+  const handleJoin = () => {
+    onJoinOrLeaveCommunity(communityData, isJoined);
+  };
 
   return (
     <Flex direction={"column"} width="100%" height="146px">
@@ -45,6 +53,7 @@ const Header: React.FC<HeaderProps> = ({ communityData }) => {
               height="30px"
               px={6}
               onClick={handleJoin}
+              isLoading={loading}
             >
               {isJoined ? "Joined" : "Join"}
             </Button>
