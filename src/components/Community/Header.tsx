@@ -28,7 +28,7 @@ const Header: React.FC<HeaderProps> = ({ communityData }) => {
         <Flex width="95%" maxWidth={"860px"}>
           {communityStateValue.currentCommunity?.imageURL ? (
             <Image
-              src={communityStateValue.currentCommunity.imageURL}
+              src={communityStateValue.currentCommunity?.imageURL}
               borderRadius="full"
               boxSize="66px"
               alt="Community image"
