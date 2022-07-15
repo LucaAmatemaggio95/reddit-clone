@@ -7,7 +7,7 @@ export type DirectoryMenuItem = {
   link: string;
   icon: IconType;
   iconColor: string;
-  imageUrl?: string;
+  imageURL?: string;
 };
 
 interface DirectoryMenuState {

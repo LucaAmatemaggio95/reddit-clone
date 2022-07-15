@@ -9,7 +9,6 @@ import {
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { MdBatchPrediction } from "react-icons/md";
 import { useRecoilState, useSetRecoilState } from "recoil";
 import { authModalState } from "../atoms/authModalAtom";
 import {
