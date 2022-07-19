@@ -6,7 +6,6 @@ import {
   Stack,
   Text
 } from "@chakra-ui/react";
-import { Timestamp } from "@google-cloud/firestore";
 import { User } from "firebase/auth";
 import {
   collection,
@@ -16,6 +15,7 @@ import {
   orderBy,
   query,
   serverTimestamp,
+  Timestamp,
   where,
   writeBatch
 } from "firebase/firestore";
