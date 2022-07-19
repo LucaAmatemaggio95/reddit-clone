@@ -54,6 +54,7 @@ const PostPage: React.FC = () => {
               )?.voteValue
             }
             userIsCreator={user?.uid === postStateValue.selectedPost?.creatorId}
+            homePage={false}
           />
         )}
         <Comments
