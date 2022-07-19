@@ -191,7 +191,7 @@ const usePosts = () => {
 
     setPostStateValue(prev => ({
       ...prev,
-      postVotes: postVotes as PostVote[]
+      postVotes: postVotes as unknown as PostVote[]
     }));
   };
 
