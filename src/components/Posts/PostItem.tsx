@@ -4,15 +4,18 @@ import {
   Flex,
   Icon,
   Image,
+  Img,
   Skeleton,
   Spinner,
   Stack,
   Text
 } from "@chakra-ui/react";
 import moment from "moment";
+import Link from "next/link";
 import { useRouter } from "next/router";
 import React, { useState } from "react";
-import { BsChat } from "react-icons/bs";
+import { BsChat, BsDot } from "react-icons/bs";
+import { FaReddit } from "react-icons/fa";
 import {
   IoArrowDownCircleOutline,
   IoArrowDownCircleSharp,
@@ -28,6 +31,7 @@ type PostItemProps = {
   post: Post;
   userIsCreator: boolean;
   userVoteValue?: number;
+  homePage: boolean;
   onVote: (
     event: React.MouseEvent<SVGElement>,
     post: Post,
@@ -42,6 +46,7 @@ const PostItem: React.FC<PostItemProps> = ({
   post,
   userIsCreator,
   userVoteValue,
+  homePage,
   onVote,
   onSelectPost,
   onDeletPost
@@ -128,6 +133,29 @@ const PostItem: React.FC<PostItemProps> = ({
             fontSize={"9pt"}
           >
             {/* home page check */}
+            {homePage && (
+              <>
+                {post.communityImageURL ? (
+                  <Image
+                    src={post.communityImageURL}
+                    borderRadius="full"
+                    boxSize={"18px"}
+                    mr={2}
+                    alt=""
+                  />
+                ) : (
+                  <Icon as={FaReddit} fontSize="18pt" mr={1} color="blue.500" />
+                )}
+              </>
+            )}
+            <Link href={`r/${post.communityId}`}>
+              <Text
+                fontWeight={700}
+                _hover={{ textDecoration: "underline" }}
+                onClick={event => event.stopPropagation()}
+              >{`r/${post.communityId}`}</Text>
+            </Link>
+            <Icon as={BsDot} color="gray.500" fontSize={8} />
             <Text>
               Posted by u/{post.creatorDisplayName}{" "}
               {moment(new Date(post.createdAt.seconds * 1000)).fromNow()}
