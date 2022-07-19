@@ -6,6 +6,7 @@ import {
   increment,
   writeBatch
 } from "firebase/firestore";
+import { truncate } from "fs";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
@@ -60,10 +61,9 @@ export const useCommunityData = () => {
 
       setCommunityStateValue(prev => ({
         ...prev,
-        mySnippets: snippets as CommunitySnippet[]
+        mySnippets: snippets as CommunitySnippet[],
+        snippetFetched: true
       }));
-
-      console.log(snippets);
     } catch (error: any) {
       console.log(error.message);
     }
@@ -168,7 +168,8 @@ export const useCommunityData = () => {
     if (!user) {
       setCommunityStateValue(prev => ({
         ...prev,
-        mySnippets: []
+        mySnippets: [],
+        snippetFetched: false
       }));
       return;
     }
