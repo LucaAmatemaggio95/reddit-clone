@@ -42,11 +42,6 @@ const Recommendations = () => {
     setLoading(false);
   };
 
-  const handleClick = (e, item, isJoined) => {
-    e.stopPropagation();
-    onJoinOrLeaveCommunity(item, isJoined);
-  };
-
   useEffect(() => {
     getCommunityRecommendations();
   }, []);
@@ -127,7 +122,7 @@ const Recommendations = () => {
                         )}
                         <span
                           style={{
-                            witeSpace: "no-wrap",
+                            whiteSpace: "nowrap",
                             overflow: "hidden",
                             textOverflow: "ellipsis"
                           }}
@@ -141,9 +136,6 @@ const Recommendations = () => {
                         height={"22px"}
                         fontSize="8pt"
                         variant={isJoined ? "outline" : "solid"}
-                        onClick={(event, item, isJoined) =>
-                          handleClick(event, item, isJoined)
-                        }
                       >
                         {isJoined ? "Joined" : "Join"}
                       </Button>
