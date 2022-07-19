@@ -2654,7 +2654,7 @@
   dependencies:
     "locate-path" "^2.0.0"
 
-"firebase-admin@^8.0.0 || ^9.0.0 || ^10.0.0 || ^11.0.0":
+"firebase-admin@^11.0.0", "firebase-admin@^8.0.0 || ^9.0.0 || ^10.0.0 || ^11.0.0":
   "integrity" "sha512-x56u+Q1P8QDvQKaYRe29ZUM/3f829cP8tsKCDXOhaIX/GbGfgcdjRhPmCafzlwgCWP5wW9NkOgIhnrw94zucvw=="
   "resolved" "https://registry.npmjs.org/firebase-admin/-/firebase-admin-11.0.0.tgz"
   "version" "11.0.0"
